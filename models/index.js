@@ -6,10 +6,13 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.Categoria = require('./categoria')(sequelize, Sequelize.DataTypes);
-db.Cor = require('./cor')(sequelize, Sequelize.DataTypes);
-db.Produto = require('./produto')(sequelize, Sequelize.DataTypes);
-db.Usuario = require('./usuario')(sequelize, Sequelize.DataTypes);
+// Corrigido para corresponder aos nomes dos arquivos de modelo
+db.Categoria = require('./categoriaModel')(sequelize, Sequelize.DataTypes);
+db.Cor = require('./corModel')(sequelize, Sequelize.DataTypes);
+db.Produto = require('./produtoModel')(sequelize, Sequelize.DataTypes);
+db.Usuario = require('./usuarioModel')(sequelize, Sequelize.DataTypes);
+// Caso tenha um modelo de Venda, adicione também
+// db.Venda = require('./vendaModel')(sequelize, Sequelize.DataTypes);
 
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {

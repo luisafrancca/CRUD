@@ -11,6 +11,10 @@ const sequelize = new Sequelize(
     host: process.env.DB_HOST,
     dialect: 'mysql',
     logging: false, // pode trocar pra true se quiser ver queries no terminal
+    dialectOptions: {
+      // Tentar criar o banco de dados se não existir
+      createDatabaseIfNotExist: true,
+    },
   }
 );
 
